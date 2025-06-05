@@ -1,0 +1,19 @@
+{
+  "name": "proyecto_verano_unerg",
+  "version": "1.0.0",
+  "description": "crud en node.js",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "author": "Sergio Carvajal",
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "^16.5.0",
+    "express": "^5.1.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.10"
+  }
+}
