@@ -1,0 +1,44 @@
+<h1>listado de categorias</h1>
+
+<a class="button button--primary" href="/categorias/create">Crear una categoria</a>
+
+<section class="categorias">
+    <table>
+        <thead>
+            <tr>
+                <th>Nombre de la categoria</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <% categorias.forEach(categoria => { %>
+                <tr>
+                    <td><a href="/categorias/<%= categoria.id %>"><%= categoria.name %></a></td>
+                    <td class="cell-inline">
+                        <a class="button button--primary" href="/categorias/<%= categoria.id %>/edit">Editar</a>
+                        <form 
+                        class="form-delete" 
+                        action="/categorias/<%= categoria.id %>?_method=DELETE" 
+                        method="post"
+                        >
+                            <button class="button button--danger" type="submit">Borrar</button>
+                        </form>
+                    </td>
+                </tr>
+            <% }) %>
+        </tbody>
+    </table>
+</section>
+
+<!-- front de js para prevenir accidentes en la eliminacion -->
+<script>
+    document.addEventListener('submit', (event) => {
+        event.preventDefault();
+        if (event.target.classList.contains('form-delete')) {
+            //si contiene la clase form-delete pregunta:
+            if (confirm('¿Esta seguro?')) {
+                event.target.submit();
+            };
+        };
+    });
+</script>
